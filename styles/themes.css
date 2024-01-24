@@ -15,6 +15,7 @@
     --start-gradient: #007f0c;
     --end-gradient: #004306;
     --gradient-line-color: #000;
+    --text-color-button: #00CC14;
   }
 } 
 
@@ -24,6 +25,7 @@
     --start-gradient: #007f0c;
     --end-gradient: #004306;
     --gradient-line-color: #000;
+    --text-color-button: #00CC14;
 }
 
 :root.theme-light {

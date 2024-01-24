@@ -22,13 +22,14 @@
   background-color: var(--bg-color);
   font-family: var(--main-font, sans-serif);
   color: var(--text-color);
+  background-attachment: fixed;
   background-image: 
     repeating-linear-gradient(var(--gradient-line-color) 0 2px, transparent 2px 4px),
     repeating-linear-gradient(90deg, var(--gradient-line-color) 0 2px, transparent 2px 4px),
     linear-gradient(var(--start-gradient) 0.01%, var(--end-gradient));
   background-size: cover;
   background-repeat: no-repeat;
-  gap: 102px;
+  gap: 54px;
   max-width: 696px;
   margin: 100px auto;
 }
@@ -39,26 +40,28 @@
 }
 
 .header {
+  display: grid;
   align-items: center;
-  grid-template-rows: 1fr auto 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   min-width: var(--wide-width);
   min-height: clamp(20.4375rem, 19.6232rem + 3.4742vw, 22.75rem);
   font-family: var(--font-accent);
+  margin-block-end: 50px;
 }
 
 .header-main-title {
-  gap: 19px;
+  gap: 20px;
   grid-row-start: 2;
 }
 
 .heading-logo {
-  padding-top: 5px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  padding-top: 12px;
 }
 
 .heading-text {
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  transform: scale(1, 1.3);
+  text-transform: uppercase;
   font-style: normal;
 }
 
@@ -72,6 +75,8 @@
   justify-content: center;
   align-items: end;
   padding-left: 20px;
+  gap: 1px;
+  padding-top: 5px;
 }
 
 .theme-menu__item {
@@ -109,18 +114,8 @@
   transition: width 0.5s;
 }
 
-.theme-menu__button:focus-visible {
-  opacity: .6;  
-  transition: opacity 0.3s;
-}
-
 .theme-menu__button:focus-visible::after {
   width: 100%;
-}
-
-.theme-menu__button:hover {
-  opacity: .6;  
-  transition: opacity 0.3s;
 }
 
 .theme-menu__button:disabled {
@@ -129,16 +124,6 @@
 
 .theme-menu__button:focus {
   outline: none;
-}
-
-@keyframes arrow {
-  0% {
-    translate: 0px;
-  }
-
-  100% {
-    translate: 4px;
-  }
 }
 
 .main-blocks {
@@ -152,24 +137,23 @@
   gap: 50px;
 }
 
-.card {
-  display: grid;
-}
-
 .card-title {
   font-size: 18px;
   padding: 5px 10px;
   border-bottom: 2px solid var(--text-color);
+  font-variation-settings: "wght" var(--max-font-weight);
 }
 
 .card-image-item {
   position: relative;
   display: block;
+  aspect-ratio: 1/1;
 }
 
 .card-image {
-  display: block;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .image-start {
@@ -235,6 +219,7 @@
   gap: 27px;
   line-height: 21px;
   font-size: 18px;
+  font-variation-settings: "wght" var(--min-font-weight);
 }
 
 .like-block {
@@ -260,17 +245,6 @@
   overflow: hidden;
 }
 
-.card__like-button::before {
-  content: "";
-  position: absolute;
-  display: flex;
-  inline-size: 130px;
-  block-size: 38px;
-  background-color: var(--text-color);
-  transform: translate(-100%);
-  transition: transform 0.5s ease-in-out;
-}
-
 .card__like-button:hover::before {
   transform: translate(0);
 }
@@ -279,15 +253,21 @@
   outline: none;
 }
 
-.card__like-button:focus-visible {
-  outline: none;
-  box-shadow: 2px 2px var(--text-color);
-  transition: box-shadow 0.3s ease;
-}
-
 .button__text {
   mix-blend-mode: difference;
   color: var(--text-color-button);
+}
+
+.core {
+  opacity: 0;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.main-body {
+  opacity: 0;
 }
 
 .card__icon-button {
@@ -306,11 +286,6 @@
   outline: none;
 }
 
-.card__icon-button:focus-visible .like-icon {
-  outline: 2px solid var(--text-color);
-  transition: border 0.3s ease;
-}
-
 .like-icon {
   width: 100%;
   outline: 2px solid transparent;
@@ -322,28 +297,17 @@
   position: relative;
   border: 2px solid var(--text-color);
   cursor: pointer;
-  min-inline-size: 306px;
+  min-inline-size: 335px;
   min-block-size: 51px;
   font-family: var(--font-accent);
   font-size: 14px;
-  margin: 54px auto;
+  margin: 0 auto;
   padding: 15px;
   color: var(--text-color);
   overflow: hidden;
   align-items: center;
   justify-content: space-around;
   background-color: var(--bg-color);
-}
-
-.footer-button::before {
-  content: "";
-  position: absolute;
-  display: flex;
-  min-inline-size: 326px;
-  min-block-size: 85px;
-  background-color: var(--text-color);
-  transform: translate(-100%);
-  transition: transform 0.5s ease-in-out;
 }
 
 .footer-button:hover::before {
@@ -354,141 +318,28 @@
   outline: none;
 }
 
-.footer-button:focus-visible {
-  outline: none;
-  box-shadow: 2px 2px var(--text-color);
-  transition: box-shadow 0.3s ease;
-}
-
-
 @media (width <= 375px) {
   .footer-button {
     flex-direction: column;
+    min-inline-size: 306px;
+    min-block-size: 80px;
   }
 
   .footer-dialog {
     width: 341px;
     height: 195px;
   }
-}
 
-.core {
-  opacity: 0;
-}
-
-.sparks {
-  opacity: 0;
-}
-
-.main-body {
-  opacity: 0;
-}
-
-.card__icon-button:hover .main-body {
-  opacity: 1;
-  fill: var(--text-color);
-  transition: opacity 0.3s;
-  transition-delay: 0.05s;
-}
-
-.card__icon-button:hover .core {
-  opacity: 1;
-  fill: var(--text-color);
-  transition: opacity 0.3s;
-}
-
-.card__icon-button:active .main-body {
-  opacity: 1;
-  fill: var(--heart-main-color);
-  transition: fill 0.3s;
-  transition-delay: 0.05s;
-}
-
-.card__icon-button:active .core {
-  opacity: 1;
-  fill: var(--heart-main-color);
-  transition: fill 0.3s;
-}
-
-.like-icon.is-liked .core {
-  opacity: 1;
-  fill: var(--heart-main-color);
-  transition: fill 0.3s;
-  transition-delay: 0.03s;
-}
-
-.like-icon.is-liked .contour {
-  opacity: 1;
-  fill: var(--heart-main-color);
-  transition: fill 0.3s;
-  transition-delay: 0.06s;
-}
-
-.like-icon.is-liked .main-body {
-  opacity: 1;
-  fill: var(--heart-main-color);
-  transition: fill 0.3s;
-  transition-delay: 0.05s;
-}
-
-.like-icon.is-liked .heart {
-  animation: liked 0.3s ease-in;
-  animation-delay: 0.1s;
-  transform-origin: center;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in;
-  animation-delay: 0.3s;
-  transform-origin: center;
-}
-
-@keyframes sparks {
-  0% {
-    opacity: 0;
+  .heading-logo {
+    padding-top: 0;
   }
 
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
+  .theme-menu__list {
+    padding-bottom: 8px;
+    padding-top: 0;
   }
 }
 
-@keyframes liked {
-  0% {
-    scale: 1;
-  }
-
-  50% {
-    scale: 1.5;
-  }
-
-  100% {
-    scale: 1;
-  }
-}
-
-.like-icon .main-body {
-  fill: transparent;
-  transition: fill 0.3s;
-  transition-delay: 0.05s;
-}
-
-.like-icon .core {
-  opacity: 1;
-  fill: transparent;
-  transition: fill 0.3s;
-  transition-delay: 0.03s;
-}
-
-.like-icon .contour {
-  opacity: 1;
-  fill: var(--text-color);
-  transition: fill 0.1s;
-}
 
 .floppy {
   mix-blend-mode: difference;
@@ -497,9 +348,7 @@
 
 dialog {
   max-inline-size: 550px;
-  inline-size: 80%;
   min-inline-size: 250px;
-  transition: opacity 0.3s ease-in-out;
   background-color: var(--bg-color);
 }
 
@@ -509,8 +358,6 @@ dialog::backdrop {
 }
 
 .footer-dialog {
-  width: 357px;
-  height: 193px;
   background-color: var(--bg-color);
   color: var(--text-color);
 }
@@ -519,6 +366,7 @@ dialog::backdrop {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding: 30px;
   justify-content: center;
 }
 
@@ -527,7 +375,7 @@ dialog::backdrop {
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
-  padding: 0 15px;
+
 }
 
 .dialog-text {
@@ -540,6 +388,7 @@ dialog::backdrop {
 
 .dialog-button {
   display: block;
+  position: relative;
   border: 2px solid var(--text-color);
   cursor: pointer;
   inline-size: 293px;
@@ -551,4 +400,14 @@ dialog::backdrop {
   justify-content: center;
   background-color: transparent;
   margin: 0 auto;
+  overflow: hidden;
 }
+
+.dialog-button:hover::before {
+  transform: translate(0);
+}
+
+.dialog-button:focus {
+  outline: none;
+}
+
