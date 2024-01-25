@@ -21,6 +21,7 @@
   min-block-size: 100dvb;
   background-color: var(--bg-color);
   font-family: var(--main-font, sans-serif);
+  font-variation-settings: "wght" var(--min-font-weight) var(--max-font-weight);
   color: var(--text-color);
   background-attachment: fixed;
   background-image: 
@@ -46,7 +47,7 @@
   min-width: var(--wide-width);
   min-height: clamp(20.4375rem, 19.6232rem + 3.4742vw, 22.75rem);
   font-family: var(--font-accent);
-  margin-block-end: 50px;
+  margin-block-end: 45px;
 }
 
 .header-main-title {
@@ -141,7 +142,6 @@
   font-size: 18px;
   padding: 5px 10px;
   border-bottom: 2px solid var(--text-color);
-  font-variation-settings: "wght" var(--max-font-weight);
 }
 
 .card-image-item {
@@ -215,11 +215,11 @@
 .card-text {
   display: grid;
   border-top: 2px solid var(--text-color);
-  padding: 25px;
+  padding: 22px 25px;
   gap: 27px;
   line-height: 21px;
   font-size: 18px;
-  font-variation-settings: "wght" var(--min-font-weight);
+
 }
 
 .like-block {
@@ -337,6 +337,11 @@
   .theme-menu__list {
     padding-bottom: 8px;
     padding-top: 0;
+  }
+
+  .floppy-footer {
+    width: 28px;
+    height: 28px;
   }
 }
 
