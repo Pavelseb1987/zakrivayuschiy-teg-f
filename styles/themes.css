@@ -26,6 +26,8 @@
     --end-gradient: #004306;
     --gradient-line-color: #000;
     --text-color-button: #00CC14;
+    --min-font-weight: 465;
+    --max-font-weight: 785;
 }
 
 :root.theme-light {
@@ -35,4 +37,6 @@
     --start-gradient: #e7e7e7;
     --end-gradient: #1a1a1a;
     --gradient-line-color: #d3d3d3;
+    --min-font-weight: 400;
+    --max-font-weight: 700; 
 }
